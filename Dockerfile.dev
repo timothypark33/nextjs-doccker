@@ -1,0 +1,14 @@
+# Use the Node 20 base image
+FROM node:20
+
+# Set working directory
+WORKDIR /app
+
+# Copy only necessary files and pre-built application output
+COPY package.json yarn.lock ./
+COPY ecosystem.config.js ./
+COPY public ./public
+COPY .next ./.next
+
+# Expose the application port
+EXPOSE 3102
